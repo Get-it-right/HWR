@@ -1,0 +1,22 @@
+<%@ page session="false" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="60">
+<meta name="description" content="Hello_World!">
+<style type="text/css">
+p {color:darkblue;}
+</style>
+<title>hwrhelper</title>
+</head>
+<body>
+<form 
+    action="http://1.116.196.38:15833/" 
+    method="post" 
+    enctype="multipart/form-data">
+    <input multiple type="file" name="a" id="myfile1">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
