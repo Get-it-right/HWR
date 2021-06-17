@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="login.css">
+<meta http-equiv="refresh" content="60">
+<script>
+    function function1(){
+	  document.getElementById("file").addEventListener('change', function(){
+	  	var files = this.files;
+	  	var file;
+	  	if (files && files.length) {
+	  	  file = files[0];
+	  	  if (/^image\/png$|jpeg$/.test(file.type)) {
+	  	    document.getElementById('view1').src = URL.createObjectURL(file);
+	  	  } else {
+	  	    alert("Please choose an image file with jpg jpeg png.");
+	  	  }
+	  	} else {
+	  	  alert("Please choose image file");
+	  	}
+	  }, false);
+	}
+</script>
+<title>hwrhelper</title>
+</head>
+<body>
+<form action="" class="login">
+    <h1>在线手写识别</h1><br>
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<form
+    action="http://1.116.196.38:15833/" 
+    method="post" 
+    enctype="multipart/form-data">
+    <input multiple type="file" name="a" id="file" oninput="function1()">
+    <input type="submit" value="提交">
+    <br>
+    <img src="" alt="" id="view1">
+</form>
+<section id="container"></section>
+　　<br/>
+　　<section id="container2"></section>
+　　<br/>
+　　<input type="button" value="查看读取到的内容" onclick="readTxt();readTxt2()"/>
+<script language="JavaScript">
+  var jsContainer = document.getElementById('container');
+  var jsContainer2 = document.getElementById('container2');
+  function readTxt() {
+　　var xhr = new XMLHttpRequest();
+　　xhr.open('get','a.txt',true);
+　　xhr.send();
+　　xhr.onreadystatechange = function () {
+　　if (xhr.readyState == 4&&xhr.status == 200){
+　　　　jsContainer.innerHTML = xhr.responseText;
+　　}
+// 　else {
+// 　　　console.log(xhr.status);
+// 　 }
+　　};
+  }
+  function readTxt2() {
+　　var xhr = new XMLHttpRequest();
+　　xhr.open('get','b.txt',true);
+　　xhr.send();
+　　xhr.onreadystatechange = function () {
+　　if (xhr.readyState == 4&&xhr.status == 200){
+　　　　jsContainer2.innerHTML = xhr.responseText;
+　　}
+// 　else {
+// 　　　console.log(xhr.status);
+// 　 }
+　　};
+  }
+</script>
+</body>
+</html>
