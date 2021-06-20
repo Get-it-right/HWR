@@ -1,14 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="login.css">
-<meta http-equiv="refresh" content="60">
 <script>
     function function1(){
 	  document.getElementById("file").addEventListener('change', function(){
 	  	var files = this.files;
-	  	var file;
 	  	if (files && files.length) {
 	  	  file = files[0];
 	  	  if (/^image\/png$|jpeg$/.test(file.type)) {
@@ -29,24 +27,45 @@
     <h1>在线手写识别</h1><br>
 </form>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<form
-    action="http://1.116.196.38:15833/" 
-    method="post" 
-    enctype="multipart/form-data">
-    <input multiple type="file" name="a" id="file" oninput="function1()">
-    <input type="submit" value="提交">
+<form id = "form">
+<input multiple type="file" name="a" id="file" oninput="function1()">
+<input type="button" value="提交" id="btn"/> 
+</form>
     <br>
     <img src="" alt="" id="view1">
-</form>
-<section id="container"></section>
+    <section id="container"></section>
 　　<br/>
 　　<section id="container2"></section>
 　　<br/>
 　　<input type="button" value="查看读取到的内容" onclick="readTxt();readTxt2()"/>
-<script language="JavaScript">
-  var jsContainer = document.getElementById('container');
-  var jsContainer2 = document.getElementById('container2');
-  function readTxt() {
+    <script type="text/javascript">
+    var btn=document.getElementById('btn');
+    var form=document.getElementById('form');
+    btn.onclick=function(){
+        var formData= new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open("post","http://1.116.196.38:15835/");
+        //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+        xhr.send(formData);
+        xhr.onreadystatechange=function(){
+                if (xhr.readyState === 4){
+                    if (xhr.status >=200 && xhr.status<300){
+                       
+                        const ans = JSON.parse(xhr.response);
+                        if (ans.error_msg){
+                            console.log("error")
+                        }else{
+                        console.log(JSON.stringify(ans));
+                        }
+                    }
+                }
+        }
+    }
+</script>
+    <script language="JavaScript">
+    var jsContainer = document.getElementById('container');
+    var jsContainer2 = document.getElementById('container2');
+    function readTxt() {
 　　var xhr = new XMLHttpRequest();
 　　xhr.open('get','a.txt',true);
 　　xhr.send();
