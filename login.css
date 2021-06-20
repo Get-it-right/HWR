@@ -1,0 +1,108 @@
+*{
+    user-select: none;
+    /* 无法选中，整体感更强 */
+}
+
+body{
+    background: url(wallpaper.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.login{
+    position: absolute;
+    top: 15%;
+    margin-top: -80px;
+    left: 40%;
+    margin-left: -200px;
+    /* absolute居中的一种方法 */
+    width: 700px;
+    height: 200px;
+    border-radius: 36px;
+    text-align: center;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+}
+
+h1{
+    font-size: 80px;
+    font-weight: 700;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.3em;
+}
+
+.button1{
+    float: left;
+    width:40%;
+    margin-left: 24%;
+    color: white;
+
+}
+.buttton2{
+    float: left;
+    width: 30%;
+    margin-right: 40%;
+    color:white;
+}
+.button3{
+    position: center;
+}
+
+.box1{
+    position: fixed;
+    top: 40%;
+    bottom: 20%;
+    left:10%;
+    right:50%;
+    /* absolute居中的一种方法 */
+    background:rgba(0,0,0,0.5);
+    border:1px white solid;
+}
+
+.box2 img{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 100%;
+}
+.box3{
+    position: fixed;
+    top: 40%;
+    bottom: 20%;
+    left:50%;
+    right:10%;
+    /* absolute居中的一种方法 */
+    background:rgba(0,0,0,0.5);
+    border:1px white solid;
+
+/* p1{
+    font-size:20px;
+    font-weight:400;
+    color:white
+}
+
+p2{
+    font-size: 16px;
+    font-weight: 400;
+    color:white;
+    letter-spacing: 0.3em;
+    border: 2px white solid;
+    border-radius: 4px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.button1{
+    color: white;
+    width: 68%;
+    float:left;
+}
+.buttton2{
+    width:26%;
+    float:left;
+} */
