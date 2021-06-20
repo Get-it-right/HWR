@@ -27,42 +27,39 @@
     <h1>在线手写识别</h1><br>
 </form>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div>
 <form id = "form">
 <input multiple type="file" name="a" id="file" oninput="function1()">
 <input type="button" value="提交" id="btn"/> 
 </form>
+</div>
     <br>
     <img src="" alt="" id="view1">
-    <section id="container"></section>
-　　<br/>
-　　<section id="container2"></section>
-　　<br/>
+    <br>
+    <textarea id="container" style="background-color:transparent;"></textarea>
+    <br>
+　　<textarea id="container2" style="background-color:transparent;"></textarea>
+　　<br>
 　　<input type="button" value="查看读取到的内容" onclick="readTxt();readTxt2()"/>
     <script type="text/javascript">
     var btn=document.getElementById('btn');
     var form=document.getElementById('form');
+    var bar=document.getElementById('bar');
     btn.onclick=function(){
         var formData= new FormData(form);
         var xhr = new XMLHttpRequest();
         xhr.open("post","http://1.116.196.38:15835/");
-        //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
         xhr.send(formData);
         xhr.onreadystatechange=function(){
                 if (xhr.readyState === 4){
                     if (xhr.status >=200 && xhr.status<300){
-                       
-                        const ans = JSON.parse(xhr.response);
-                        if (ans.error_msg){
-                            console.log("error")
-                        }else{
-                        console.log(JSON.stringify(ans));
-                        }
+                        alert("识别成功");
                     }
                 }
         }
     }
 </script>
-    <script language="JavaScript">
+<script language="JavaScript">
     var jsContainer = document.getElementById('container');
     var jsContainer2 = document.getElementById('container2');
     function readTxt() {
@@ -73,9 +70,6 @@
 　　if (xhr.readyState == 4&&xhr.status == 200){
 　　　　jsContainer.innerHTML = xhr.responseText;
 　　}
-// 　else {
-// 　　　console.log(xhr.status);
-// 　 }
 　　};
   }
   function readTxt2() {
@@ -86,9 +80,6 @@
 　　if (xhr.readyState == 4&&xhr.status == 200){
 　　　　jsContainer2.innerHTML = xhr.responseText;
 　　}
-// 　else {
-// 　　　console.log(xhr.status);
-// 　 }
 　　};
   }
 </script>
