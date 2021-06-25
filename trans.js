@@ -7,8 +7,8 @@ let base64str = Buffer.from(bitmap, 'binary').toString('base64'); // base64ç¼–ç 
 let stringbase64=base64str+"";
 const clientConfig = {
   credential: {
-    secretId: "AKIDe6IEtJRIsCF0VkiPpxpQkna6KHyOXOyI",
-    secretKey: "4rNcaHH1TeZCYdRyECtJTLwGJ5aolRqx",
+    secretId: " ",
+    secretKey: " ",
   },
   region: "ap-guangzhou",
   profile: {
