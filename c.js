@@ -16,8 +16,8 @@ server.on("request",(req,res)=>{
             const OcrClient = tencentcloud.ocr.v20181119.Client;
             const clientConfig = {
                 credential: {
-                secretId: "AKIDe6IEtJRIsCF0VkiPpxpQkna6KHyOXOyI",
-                secretKey: "4rNcaHH1TeZCYdRyECtJTLwGJ5aolRqx",
+                secretId: " ",
+                secretKey: " ",
                 },
                 region: "ap-guangzhou",
                 profile: {
